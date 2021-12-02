@@ -1,0 +1,131 @@
+#%RAML 1.0
+title: maven
+description: employee onboarding api
+baseUri: https://localhost:8081/emp-sapi/v1
+/add employee:
+  description: to create emp portal
+  post:
+    body:
+      application/json:
+        example:
+          {
+            "empid": 200,
+            "empname": "Jaga",
+            "empstatus": "active"
+          }
+    responses:
+            200:
+              body:
+                application/json:
+                  example:
+                    {
+                      "status": 200,
+                      "message": "sucess"
+                    }
+            500:
+              body:
+                application/json:
+                  example:
+                    {
+                      "status": 500,
+                      "message": "Internal Server Error"
+                    }
+/update employee:
+  post:
+    body:
+      application/xml:
+        example:
+          <?xml version="1.0" encoding= "UTF-8"?>
+           <emp>
+             <empid>100</empid>
+             <empstatus>active></empstatus>
+           </emp>
+    responses:
+        200:
+          body:
+            application/xml:
+              example:
+                 <?xml version="1.0" encoding= "UTF-8"?>
+                   <response>
+                   <status>200</status>
+                   </response>
+        500:
+          body:
+            application/xml:
+              example:
+                <?xml version="1.0" encoding= "UTF-8"?>
+                 <response>
+                 <status>500</status>
+                 </response>
+/fetch-employee:
+  get:
+    queryParameters:
+      empid:
+        description: empid
+        required: true
+        type: integer
+        example: 8788
+          
+      status:
+        description: status
+        required: false
+        type: string
+        example: "active" 
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "empid": 100,
+                "empname": "jaga",
+                "empstatus": "active"
+              }
+      404:
+        body:
+          application/json:
+            example:
+              {
+                "status": 404,
+                "message": "No Employee Found"
+              }
+      500:
+        body:
+          application/json:
+            example:
+              {
+                "status": 500,
+                "message": "Internal Server Error"
+              }
+/delete employee/{empid}:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "empid": 100,
+                "empname": "Jaga",
+                "empstatus": "active"
+              }
+      404:
+        body:
+          application/json:
+            example:
+              {
+                "status": 404,
+                "message": "Employee Not Found"
+              }
+      500:
+        body:
+          application/json:
+            example:
+              {
+                "status": 500,
+                "message": "Internal Server Error"
+              }
+              
+                          
+
+          
