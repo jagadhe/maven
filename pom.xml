@@ -75,7 +75,7 @@
 						<region>us-east-1</region>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
-						<objectStoreV2>true</objectStoreV2>
+					
 						<properties>
 							<env>test</env>
 							<api.id>17474722</api.id>
