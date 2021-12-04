@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="maven-test-suite.xml" />
+	<munit:test name="maven-test-suite-maven-mainTest" doc:id="8ddd6879-81c4-4228-9085-39706d3d7864" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to maven-main" doc:id="a490b997-df73-4158-84cc-aa8cd8dc7f3f" name="maven-main"/>
+		</munit:execution>
+		<munit:validation >
+			<logger level="INFO" doc:name="Logger" doc:id="6f75ab4f-aea0-489d-80a9-90c44df5ef90" message="validation has started"/>
+			<munit-tools:assert doc:name="Assert expression" doc:id="900c4119-0d33-42b8-8ed0-cb74fd48fd90" />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
